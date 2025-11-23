@@ -1,3 +1,13 @@
+## Docker
+
+Puedes construir y correr el frontend de Choppi fácilmente con Docker:
+
+```bash
+docker build -t choppifront .
+docker run -p 3000:3000 --env NEXT_PUBLIC_API_URL=URL_DEL_BACKEND choppifront
+```
+
+Asegúrate de definir la variable de entorno `NEXT_PUBLIC_API_URL` para que el frontend se conecte correctamente al backend.
 # Choppi Frontend
 
 Choppi es una plataforma para administrar tiendas, productos e inventario de manera sencilla y eficiente.
