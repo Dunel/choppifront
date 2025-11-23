@@ -1,12 +1,7 @@
 import axios from "axios";
 import { authStorage } from "@/lib/auth-storage";
 
-const normalizeBaseUrl = (url: string) => {
-  const trimmed = url.trim().replace(/\/$/, "");
-  return trimmed.endsWith("/api") ? trimmed.slice(0, -4) : trimmed;
-};
-
-const getRemoteBaseUrl = () => normalizeBaseUrl(process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:3000");
+const getRemoteBaseUrl = () => process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:3000";
 const isBrowser = () => typeof window !== "undefined";
 const baseURL = isBrowser() ? "/api/choppi" : getRemoteBaseUrl();
 
