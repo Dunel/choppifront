@@ -25,7 +25,7 @@ export default async function StoresPage({
 }) {
   const resolvedParams = (await searchParams) ?? {};
   const page = getNumber(resolvedParams.page) ?? 1;
-  const limit = getNumber(resolvedParams.limit) ?? 10;
+  const limit = getNumber(resolvedParams.limit) ?? 20;
   const q = getString(resolvedParams.q).trim();
 
   let data: StoreListResponse | null = null;
@@ -38,8 +38,16 @@ export default async function StoresPage({
   }
 
   return (
-    <div className="min-h-screen w-full bg-gradient-to-b from-white via-zinc-50 to-zinc-100 px-4 py-12">
-      <div className="mx-auto max-w-5xl space-y-8">
+    <div className="min-h-screen w-full bg-gradient-to-b from-white via-zinc-50 to-zinc-100">
+      <header className="w-full border-b border-zinc-100 bg-primary py-4 px-8 flex items-center justify-between">
+        <span className="text-xl font-bold text-white tracking-tight">Choppi</span>
+        <nav className="flex gap-6">
+          <a href="/" className="text-white font-medium hover:underline transition">Inicio</a>
+          <a href="/stores" className="text-white font-medium hover:underline transition">Tiendas</a>
+          <a href="/login" className="text-white font-medium hover:underline transition">Login</a>
+        </nav>
+      </header>
+      <div className="mx-auto max-w-5xl space-y-8 px-4 py-12">
         <header className="space-y-2">
           <p className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.15em] text-primary">
             Tiendas

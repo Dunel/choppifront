@@ -54,7 +54,7 @@ export default async function StoreDetailPage({
   const [{ id }, resolvedSearchParams] = await Promise.all([params, searchParams]);
   const safeParams = resolvedSearchParams ?? {};
   const page = getNumber(safeParams.page) ?? 1;
-  const limit = getNumber(safeParams.limit) ?? 10;
+  const limit = getNumber(safeParams.limit) ?? 20;
   const q = getString(safeParams.q).trim();
   const inStockOnly = getBoolean(safeParams.inStock);
 
@@ -78,8 +78,16 @@ export default async function StoreDetailPage({
   });
 
   return (
-    <div className="min-h-screen w-full bg-gradient-to-b from-white via-zinc-50 to-zinc-100 px-4 py-12">
-      <div className="mx-auto max-w-5xl space-y-10">
+    <div className="min-h-screen w-full bg-gradient-to-b from-white via-zinc-50 to-zinc-100">
+      <header className="w-full border-b border-zinc-100 bg-primary py-4 px-8 flex items-center justify-between">
+        <span className="text-xl font-bold text-white tracking-tight">Choppi</span>
+        <nav className="flex gap-6">
+          <a href="/" className="text-white font-medium hover:underline transition">Inicio</a>
+          <a href="/stores" className="text-white font-medium hover:underline transition">Tiendas</a>
+          <a href="/login" className="text-white font-medium hover:underline transition">Login</a>
+        </nav>
+      </header>
+      <div className="mx-auto max-w-5xl space-y-10 px-4 py-12">
         <header className="space-y-2">
           <p className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.15em] text-primary">
             Tienda

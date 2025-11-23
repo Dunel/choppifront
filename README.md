@@ -1,36 +1,48 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Choppi Frontend
 
-## Getting Started
+Choppi es una plataforma para administrar tiendas, productos e inventario de manera sencilla y eficiente.
 
-First, run the development server:
+## Características principales
+- Listado y gestión de tiendas
+- Inventario por tienda
+- Búsqueda y paginado (20 en 20)
+- Cotización de carrito (POST /cart/quote)
+- Panel de administración protegido
+- Login y cierre de sesión
+- UI moderna con Tailwind
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Instalación y uso local
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+1. **Clona el repositorio:**
+	```bash
+	git clone https://github.com/Dunel/choppifront.git
+	cd choppifront
+	```
+2. **Instala dependencias:**
+	```bash
+	npm install
+	```
+3. **Configura variables de entorno:**
+	- Crea un archivo `.env.local` basado en `.env.example` (si existe).
+	- Asegúrate de tener la URL del backend en `NEXT_PUBLIC_API_URL`.
+4. **Ejecuta en desarrollo:**
+	```bash
+	npm run dev
+	```
+5. **Compila para producción:**
+	```bash
+	npm run build
+	npm start
+	```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Seeds y datos de prueba
+- El backend debe proveer endpoints para poblar datos de ejemplo (tiendas, productos, usuarios).
+- Consulta la documentación del backend para ejecutar los seeds (normalmente: `npm run seed` o similar en el backend).
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Deploy
+- El frontend puede desplegarse fácilmente en Vercel, Netlify o cualquier servicio compatible con Next.js.
+- Solo necesitas configurar la variable `NEXT_PUBLIC_API_URL` apuntando al backend accesible públicamente.
+- Ejemplo de deploy en Vercel:
+  1. Sube el repo a GitHub.
+  2. Conecta el repo en [vercel.com](https://vercel.com/).
+  3. Configura la variable de entorno y despliega.

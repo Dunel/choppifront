@@ -6,7 +6,7 @@ import { StoreManager } from "@/components/admin/StoreManager";
 import { useAuth } from "@/hooks/useAuth";
 
 export default function AdminPage() {
-  const { user } = useAuth();
+  const { user, logout } = useAuth();
 
   return (
     <ProtectedRoute>
@@ -20,9 +20,18 @@ export default function AdminPage() {
               <p className="text-sm font-semibold text-primary">Administración central</p>
               <h1 className="text-4xl font-bold text-zinc-900">Vista general del negocio</h1>
             </div>
-            <p className="text-sm text-zinc-500">
-              Sesión iniciada como <span className="font-semibold text-zinc-900">{user?.email}</span>
-            </p>
+            <div className="flex flex-wrap items-center gap-4">
+              <p className="text-sm text-zinc-500">
+                Sesión iniciada como <span className="font-semibold text-zinc-900">{user?.email}</span>
+              </p>
+              <button
+                type="button"
+                onClick={logout}
+                className="rounded-xl border border-primary/30 bg-primary px-4 py-2 text-xs font-semibold text-white shadow-sm transition hover:bg-[#e6952a]"
+              >
+                Cerrar sesión
+              </button>
+            </div>
           </header>
 
           <div className="rounded-2xl border border-zinc-100 bg-white p-8 shadow-sm">
