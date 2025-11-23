@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState, useTransition } from "react";
+import { useEffect, useMemo, useState, useTransition } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import type { Store, StoreListResponse } from "@/types/store";
@@ -26,6 +26,10 @@ export function StoresListClient({ data, currentPage, query, limit }: Props) {
   const router = useRouter();
   const [localQuery, setLocalQuery] = useState(query);
   const [isPending, startTransition] = useTransition();
+
+  useEffect(() => {
+    setLocalQuery(query);
+  }, [query]);
 
   const totalPages = useMemo(() => {
     return Math.max(1, Math.ceil(data.meta.total / data.meta.limit));
@@ -53,7 +57,7 @@ export function StoresListClient({ data, currentPage, query, limit }: Props) {
         <input
           type="search"
           placeholder="Buscar tienda por nombre o dirección..."
-          className="flex-1 rounded-xl border border-zinc-200 px-4 py-2 text-sm outline-none focus:border-primary focus:ring-2 focus:ring-primary/20"
+          className="flex-1 rounded-xl border border-zinc-200 px-4 py-2 text-sm text-zinc-900 placeholder:text-zinc-400 outline-none focus:border-primary focus:ring-2 focus:ring-primary/20"
           value={localQuery}
           onChange={(event) => setLocalQuery(event.target.value)}
         />

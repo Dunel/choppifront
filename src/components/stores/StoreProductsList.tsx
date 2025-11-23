@@ -67,7 +67,7 @@ export function StoreProductsList({ storeId, data, currentPage, limit, query, in
           <input
             type="search"
             placeholder="Buscar producto"
-            className="flex-1 rounded-xl border border-zinc-200 px-4 py-2 text-sm outline-none focus:border-primary focus:ring-2 focus:ring-primary/20"
+            className="flex-1 rounded-xl border border-zinc-200 px-4 py-2 text-sm text-zinc-900 placeholder:text-zinc-400 outline-none focus:border-primary focus:ring-2 focus:ring-primary/20"
             value={localQuery}
             onChange={(event) => setLocalQuery(event.target.value)}
           />
